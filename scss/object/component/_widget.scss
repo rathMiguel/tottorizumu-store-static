@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+@use "../../settings/functions" as *;
+
+.widget_categories,
+.widget_archive{
+  .screen-reader-text{
+    display: none;
+  }
+
+  select{
+    width: 100%;
+  }
+}

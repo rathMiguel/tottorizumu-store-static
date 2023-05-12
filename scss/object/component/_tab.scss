@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+//
+// news
+//
+
+.tab-radio{
+  appearance: none;
+  display: none;
+}
+
+.list-tab-label{
+  label{
+    cursor: pointer;
+  }
+}
+
+#tab-radio1:checked ~ .list-tab-label #tab-label1,
+#tab-radio2:checked ~ .list-tab-label #tab-label2,
+#tab-radio3:checked ~ .list-tab-label #tab-label3 {
+  border-color: #ECEEF4 !important;
+  background-color: #FFF !important;
+}
+
+.tab-content{
+  display: none;
+}
+
+#tab-radio1:checked ~ .wrap-tab-content #tab-content1,
+#tab-radio2:checked ~ .wrap-tab-content #tab-content2,
+#tab-radio3:checked ~ .wrap-tab-content #tab-content3{
+  display: block;
+}
+
+.js-tab-wrap{
+  .js-tablist{
+    .js-tab{
+      cursor: pointer;
+    }
+  }
+
+  .js-tab-content{
+    display: none;
+    &.active{
+      display: block;
+    }
+  }
+}
+
+//
+// ranking
+//
+
+#tab-ranking1:checked ~ .list-tab-label #tab-label1,
+#tab-ranking2:checked ~ .list-tab-label #tab-label2,
+#tab-ranking3:checked ~ .list-tab-label #tab-label3 {
+  border: none !important;
+  background-color: #FFF !important;
+}
+
+#tab-ranking1:checked ~ .wrap-tab-content #tab-ranking1-content,
+#tab-ranking2:checked ~ .wrap-tab-content #tab-ranking2-content,
+#tab-ranking3:checked ~ .wrap-tab-content #tab-ranking3-content{
+  display: block;
+}

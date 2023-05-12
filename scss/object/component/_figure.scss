@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.figure{
+  figcaption{
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.5;
+    font-size: size(13);
+    color: #666;
+  }
+}
+
+.figure-default{
+  @extend .figure;
+}

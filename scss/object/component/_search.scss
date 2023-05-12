@@ -1,0 +1,127 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.search-block{
+  position: relative;
+}
+
+.search-form{
+  display: flex;
+  &__block{
+    display: flex;
+  }
+}
+
+.search-input{
+  width: 100%;
+  border-radius: 10px 0 0 10px !important;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ECEEF4 !important;
+  height: 50px;
+  padding-left: 10px;
+  padding-right: 10px;
+  appearance: none;
+  font-family: inherit;
+  @include media(sm){
+    height: 40px;
+  }
+  &::placeholder{
+    color: #B3B3B3;
+  }
+
+  &--min{
+    @extend .search-input;
+    border-color: #CCC;
+    height: 32px;
+    font-size: size(13);
+    @include media(md-lg){
+      border-radius: 5px 0 0 5px !important;
+    }
+    @include media(lg){
+      border-radius: $radius-default 0 0 $radius-default !important;
+    }
+  }
+}
+
+.search-button{
+  @include button;
+  width: 63px;
+  height: 50px;
+  background-color: #ECEEF4;
+  border-radius: 0 10px 10px 0;
+  @include media(sm){
+    height: 40px;
+    border-radius: 0 $radius-default $radius-default 0;
+  }
+  
+  &--secondary{
+    @extend .search-button;
+    border-radius: 0 5px 5px 0;
+    background-color: $color-primary;
+    width: 40px;
+    height: 32px;
+    @include media(sm){
+      border-radius: 0 $radius-default $radius-default 0;
+    }
+    svg{
+      .cls-1{
+        fill: #fff;
+      }
+    }
+  }
+
+  &--home{
+    @extend .search-button;
+    background-color: $color-primary;
+    svg{
+      .cls-1{
+        fill: #fff;
+      }
+    }
+  }
+}
+
+.search-keywords{
+  position: absolute;
+  z-index: 100;
+  top: 20px + 55px;
+  display: none;
+  &__tail{
+    position: absolute;
+    top: -24px;
+    left: 20px;
+    overflow: hidden;
+    padding: 10px;
+    height: 24px;
+    span{
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(#6D6D6D, 0.2);
+      transform: rotate(45deg);
+    }
+  }
+
+  &__wrap{
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(#6D6D6D, 0.2);
+  }
+
+  &__list{
+    li{
+      &:not(:last-child){
+        border-bottom: 1px solid #CCC;
+      }
+    }
+    a{
+      color: #4D4D4D;
+      text-decoration: none;
+      display: block;
+      padding: 10px 30px;
+    }
+  }
+}

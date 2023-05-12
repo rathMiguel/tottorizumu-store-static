@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.swiper-slide{
+  img{
+    width: 100%;
+  }
+}
+
+.swiper-pagination{
+  .swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    background-color: lighten($color-primary, 50%);
+    opacity: 1;
+    @include media(sm){
+      width: 6px;
+      height: 6px;
+    }
+    &-active{
+      background-color: $color-primary;
+    }
+  }
+}

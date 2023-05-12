@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.sort-dl{
+  color: $color-primary;
+  display: flex;
+  dt{
+    font-size: size(15);
+    margin-right: 5px;
+  }
+
+  dd{
+    display: flex;
+    & > * {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+}

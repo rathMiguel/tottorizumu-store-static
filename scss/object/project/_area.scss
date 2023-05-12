@@ -1,0 +1,251 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+@use "sass:color";
+
+$area-toubu: #57b8c5;
+$area-chubu: #f8838c;
+$area-seibu: #faa01c;
+
+.area-figure{
+  text-align: center;
+  @include media(md-lg){
+    width: 50%;
+    margin-top: 10px;
+  }
+}
+
+//
+// tables
+//
+
+.area-tables{
+  display: flex;
+  flex-wrap: wrap;
+  @include media(md-lg){
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  @include media(lg){
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+
+  img{
+    @include media(md-lg){
+      width: 90%;
+    }
+  }
+}
+
+.area-tableblock{
+  margin-bottom: 30px;
+  width: 100%;
+  @include media(md-lg){
+    width: 50%;
+    margin-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include media(lg){
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+.area-tableblock-heading{
+  @include media(sm){
+    text-align: center;
+  }
+}
+
+.title-tablearea{
+  font-size: size(18);
+  margin-bottom: 8px;
+  font-weight: 600;
+  &--toubu{
+    @extend .title-tablearea;
+    color: $area-toubu;
+  }
+  &--chubu{
+    @extend .title-tablearea;
+    color: $area-chubu;
+  }
+  &--seibu{
+    @extend .title-tablearea;
+    color: $area-seibu;
+  }
+}
+
+.table-area{
+  width: 100%;
+  font-size: 0.88em;
+  font-family: $brandon;
+  border-collapse: collapse;
+  display: block;
+
+  tbody{
+    display: block;
+  }
+
+  tr{
+    border: 1px solid #999;
+    border-bottom: none;
+    display: flex;
+    &:last-child{
+      border: 1px solid #999;
+    }
+  }
+
+  th, td{
+    padding: 0.6em 0.8em;
+    line-height: 1.4;
+    display: block;
+  }
+
+  th{
+    text-align: left;
+    width: 8em;
+    border-right: none;
+  }
+  
+  td{
+    background-color: #fff;
+    border-left: none;
+    flex: 1;
+  }
+
+  .num-circle{
+    border: 1px solid #333;
+    border-radius: 100px;
+    font-size: 0.9em;
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: -0.05em;
+    margin-right: 0.3em;
+  }
+}
+
+.table-color{
+  &--toubu{
+    th{
+      background-color: lighten($area-toubu, 25%);
+    }
+  }
+  &--chubu{
+    th{
+      background-color: lighten($area-chubu, 17%);
+    }
+  }
+  &--seibu{
+    th{
+      background-color: lighten($area-seibu, 25%);
+    }
+  }
+}
+
+//
+// osusume
+//
+
+.area-osusume{
+  &__header{
+    text-align: center;
+    margin-bottom: 40px;
+    @include media(lg){
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.title-osusume{
+  &__header{
+    font-size: 1.5em;
+    color: $color-primary;
+    border-bottom: 1px solid $color-primary;
+    display: inline-flex;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+}
+
+.section-osusume{
+  border-bottom: 1px solid #c5cee0;
+  padding-bottom: 60px;
+  margin-bottom: 50px;
+  &:last-child{
+    border-bottom: none;
+  }
+
+  &__header{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__main{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    & > * {
+      width: calc(33.333% - 30px);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      margin-left: 15px;
+      margin-right: 15px;
+      @include media(sm){
+        width: calc(50% - 20px);
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
+
+      .post-eyecatch{     
+        @include media(sm){
+          width: 100%;
+        }   
+        img{
+          @include media(sm){
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &__footer{
+    text-align: center;
+    @include media(sm){
+      margin-top: 30px;
+    }
+  }
+}
+
+.title-osusume{
+  color: #FFF;
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  display: inline-flex;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  &.color{
+    &--toubu{
+      background-color: $area-toubu;
+    }
+    &--chubu{
+      background-color: $area-chubu;
+    }
+    &--seibu{
+      background-color: $area-seibu;
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+// posts style
+
+.posts{
+  display: flex;
+  flex-wrap: wrap;
+  @include media(sm){
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  & > * {
+    margin-bottom: 20px;
+    @include media(sm){
+      width: calc(50% - 40px);
+    }
+    @include media(md-lg){
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 40px;
+      width: calc(25% - 40px);
+    }
+  }
+}
+
+.posts-listed{
+  &__row{
+    display: flex;
+    border-bottom: 1px dashed #CCC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @include media(sm){
+      flex-direction: column;
+    }
+    &:first-child{
+      padding-top: 0;
+    }
+
+    &.nocategory{
+      .posts-listed__meta{
+        @include media(md-lg){
+          width: 5.5em;
+        }
+      }
+    }
+
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+
+  &__meta{
+    display: flex;
+    margin-bottom: 3px;
+    @include media(md-lg){
+      width: 10em;
+    }
+  }
+
+  &__main{
+    flex: 1;
+  }
+
+  &__date{
+    display: inline-block;
+    margin-top: 4px;
+  }
+
+  &__label{
+    margin-top: 3px;
+  }
+
+  &--sm{
+    @include media(sm){
+      display: flex;
+      flex-direction: column;
+    }
+    
+    & > *{
+      @include media(sm){
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        border-bottom: 1px solid #CCC;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .post-label--floated{
+      @include media(sm){
+        position: static;
+      }
+    }
+  }
+}
+
+.posts-grid{
+  &--sm{
+    @include media(sm){
+      margin-left: -10px;
+      margin-right: -10px;
+    }
+    & > * {
+      @include media(sm){
+        margin-bottom: 20px;
+        width: calc(50% - 20px) !important;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      .post-eyecatch{
+        @include media(sm){
+          width: 100%;
+        }
+        img{
+          @include media(sm){
+            width: 100%;
+          }
+        }
+      }
+
+      .post-block__content{
+        @include media(sm){
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+@use "../settings/variables" as *;
+@use "../settings/mixins" as *;
+@use "../settings/functions" as *;
+
+footer#footer{
+  color: $color-primary;
+  position: relative;
+  .footer-bg{
+    background-image: url('../images/common/footer-bg2.svg'),
+    url('../images/common/footer-bg.png');
+    background-color: #F1F3F8;
+    background-size: 894px, 100%;
+    background-position: center bottom, center top;
+    padding-top: 100px;
+    padding-bottom: 120px;
+    background-repeat: no-repeat;
+    @include media(sm){
+      background-image: url('../images/common/footer-bg.png');
+      background-position: center top;
+      padding-top: 50px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .footer-logoarea{
+    text-align: center;
+    margin-bottom: 40px;
+    @include media(sm){
+      margin-bottom: 20px;
+    }
+  }
+
+  .footer-caption{
+    @include logocaption;
+    &__text{
+      @include media(sm){
+        font-size: size(12);
+      }
+    }
+  }
+
+  .footer-logo{
+    margin-top: 8px;
+    img{
+      @include media(sm){
+        width: 125px;
+      }
+    }
+  }
+
+  .footer-wrap{
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-nav{
+    margin-bottom: 50px;
+    @include media(sm){
+      margin-bottom: 40px;
+    }
+    &__list{
+      @include media(md-lg){
+        display: flex;
+        flex-wrap: wrap;
+      }
+      @include media(sm){
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+      li{
+        margin-top: 5px;
+        margin-bottom: 5px;
+        position: relative;
+        @include media(pc){
+          width: 25%;
+        }
+        &:hover{
+          &::before{
+            @include media(lg){
+              content: "▶︎";
+              color: $color-secondary;
+              margin-left: -1.3em;
+              margin-right: 0.3em;
+            }
+          }
+        }
+      }
+
+      a{
+        color: $color-primary;
+        text-decoration: none;
+        &::before{
+          @include media(sm){
+            content: ">";
+            margin-right: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-copyright{
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 12px;
+    background-color: $color-primary;
+    color: #FFF;
+    p{
+      margin-bottom: 0;
+      small{
+        font-size: size(13);
+        @include media(sp){
+          font-size: size(11);
+        }
+      }
+    }
+  }
+}

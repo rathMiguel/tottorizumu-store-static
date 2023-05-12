@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+@mixin contentStyle($is_editor: false){
+  p{
+    margin-top: 0;
+    margin-bottom: 1.85em;
+    font-size: size(16, $is_editor);
+  }
+
+  // マーカー
+  marker,
+  .marker{
+    display: inline;
+    border-bottom: 3px solid #ee2;
+  }
+
+  h2{
+    background-color: $color-primary;
+    color: #FFF;
+    line-height: 1.5;
+    font-size: size(28, $is_editor);
+    line-height: size(40, $is_editor);
+    padding: 15px;
+    padding-bottom: 16px;
+    margin-top: size(40, $is_editor);
+    margin-bottom: size(30, $is_editor);
+    font-weight: 500 !important;
+    @include media(sm){
+      font-size: size(25, $is_editor);
+      line-height: size(30 * 1.2, $is_editor);
+      padding: 13px;
+      padding-bottom: 12px;
+      margin-top: size(20, $is_editor);
+      margin-bottom: size(16, $is_editor);
+      font-weight: 700;
+    }
+  }
+
+  h3{
+    color: $color-default;
+    font-size: size(23, $is_editor);
+    line-height: 1.4;
+    padding: 4px 8px;
+    padding-top: 0;
+    padding-left: 0;
+    padding-bottom: 10px;
+    margin-top: 2.6rem;
+    margin-bottom: 1.6rem;
+    border-bottom: 3px solid $color-primary;
+    & + h4{
+      margin-bottom: -0.5em;
+    }
+  }
+
+  h4{
+    font-size: size(20, $is_editor);
+    line-height: 1.4;
+    padding: 8px 12px;
+    margin-top: 1rem;
+    margin-bottom: 0.8rem;
+    border-left: 2px solid #2b2b2b;
+    color: $color-default;
+    & + h5{
+      margin-bottom: -0.5em;
+    }
+  }
+
+  table{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.9em;
+    
+    th, td{
+      padding: 0.9em;
+      border: 1px solid #b3b3b3;
+      box-sizing: border-box;
+      &:nth-child(1){
+        white-space: nowrap;
+      }
+    }
+
+    th{
+      background-color: #e6e6e6;
+      white-space: nowrap;
+      width: 8em;
+    }
+  }
+
+  // キャプション付き画像
+  .wp-caption{
+    margin-bottom: 1.65em;
+    width: auto !important;
+    p{
+      margin-bottom: 0;
+    }
+    img{
+      margin-bottom: 10px;
+      @include media(sm){
+        margin-bottom: 7px;
+      }
+    }
+
+    .wp-caption-text{
+      text-align: center;
+      color: #999;
+      @include media(sm){
+        font-size: size(13);
+      }
+    }
+  }
+
+  %content-box{
+    padding: 1.5em 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    position: relative;
+    border-radius: 10px;
+    @include media(lg){
+      padding: 2.2em 1.8em;
+    }
+    @include media(sm){
+      border-radius: $radius-default;
+    }
+    &::before{
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+
+    & > *:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  // ポイント 
+  .concept-box1{
+    @extend %content-box;
+    border: 2px solid #d9dfea;
+    &::before{
+      content: "";
+      display: inline-block;
+      width: 57px;
+      height: 12px;
+      background-image: url('../images/common/point.svg');
+      position: absolute;
+      left: 20px;
+      top: -7px;
+      background-color: #fff;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: content-box;
+    }
+  }
+
+  // メモ 
+  .concept-box6{
+    @extend %content-box;
+    border: 2px solid #f5e3c8;
+    &::before{
+      content: "";
+      display: inline-block;
+      width: 57px;
+      height: 12px;
+      background-image: url('../images/common/memo.svg');
+      position: absolute;
+      left: 20px;
+      top: -7px;
+      background-color: #fff;
+      padding-left: 8px;
+      padding-right: 8px;
+      box-sizing: content-box;
+    }
+  }
+
+  // チャットボックス
+  .balloon-box{
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1.5em;
+    margin-bottom: 3.5em;
+
+    &.balloon-left{
+      margin-left: -1.2em;
+    }
+    
+    &.balloon-right{
+      flex-direction: row-reverse;
+      margin-right: -1.2em;
+    }
+
+    & + .balloon-box{
+      margin-bottom: 1.5em;
+    }
+  }
+
+  .balloon-serif{
+    width: 100%;
+    flex: 1;
+  }
+  
+  .balloon-content{
+    @extend %content-box;
+    background-color: #eceff5;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    @include media(lg){
+      padding: 1.6em 3em;
+    }
+
+    &::before{
+      content: "";
+      display: inline-block;
+      border: 15px solid #eceff5;
+      border-top-width: 7px;
+      border-bottom-width: 7px;
+      border-bottom-color: transparent;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      position: absolute;
+      left: -30px;
+      top: 35px;
+      @include media(sm){
+        left: -30px;
+      }
+    }
+  }
+  
+  .balloon-icon{
+    width: 80px;
+    margin-left: 1.2em;
+    margin-right: 1.2em;
+  }
+  
+  // 注意点
+  .concept-box2{
+    @extend %content-box;
+    border: 2px solid #f5e3c8;
+    &::before{
+      content: "";
+      display: inline-block;
+      width: 41px;
+      height: 41px;
+      background-image: url('../images/common/caution.svg');
+      position: absolute;
+      left: 20px;
+      top: -25px;
+    }
+  }
+
+  // 二重囲い
+  .simple-box3{
+    @extend %content-box;
+    border: double 5px #d9dfea;
+  }
+}

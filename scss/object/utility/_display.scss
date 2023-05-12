@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.hide-all{display: none;}
+
+@each $media in $medias {
+  .hide-#{$media} {
+    @include media(#{$media}){
+      display: none;
+    }
+  }
+}

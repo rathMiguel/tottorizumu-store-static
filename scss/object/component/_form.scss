@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+@use "../../settings/functions" as *;
+
+textarea{
+  width: 100%;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select{
+  font-family: $ja_go;
+  border: 1px solid $color-info;
+  padding: 10px 15px;
+  border-radius: 10px;
+  @include media(sm){
+    border-radius: $radius-default;
+  }
+}
+
+select{
+  background-image: url('../images/common/select-down.svg');
+  background-size: 13px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}

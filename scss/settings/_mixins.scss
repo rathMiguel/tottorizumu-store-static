@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+@use "sass:map";
+@use "sass:math";
+@forward "variables";
+@use "variables" as *;
+
+@mixin media($name: lg) {
+  @media #{map.get($breakpoints, $name)} {
+    @content;
+  }
+}
+
+@mixin gutter($num: 0){
+  padding-left: $num;
+  padding-right: $num;
+}
+
+@mixin logocaption {
+  color: $color-primary;
+  font-size: size(10);
+  @include media(pc){
+    font-size: size(15);
+  }
+}
+
+@mixin link-block{
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+@mixin button{
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin checkbox{
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid $color-primary;
+  margin-right: 7px;
+  border-radius: 100px;
+  cursor: pointer;
+  &:checked {
+    background-color: $color-secondary;
+    background-image: url('../images/common/check.svg');
+    background-size: 11px 10px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-color: $color-secondary;
+  }
+}
+
+@mixin cf{
+  *zoom: 1;
+  &:before,&:after {
+    content: "";
+    display: table;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+@function size($num, $is_editor: false){
+  @if($is_editor){
+    @return math.div($num, 16) * 1rem;
+  } @else{
+    @return $num * 0.1rem;
+  }
+}

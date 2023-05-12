@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+// structure
+
+.social{
+  display: flex;
+  justify-content: center;
+  @include media(sm){
+    flex-direction: column;
+  }
+
+  &__header{
+    @include media(md-lg){
+      margin-right: 1.5em;
+    }
+    @include media(sm){
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+    }
+  }
+
+  &__list{
+    display: flex;
+    @include media(sm){
+      justify-content: center;
+    }
+    li{
+      margin-left: 8px;
+      @include media(sm){
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+    }
+  }
+
+  &--row-sm{
+    @include media(sm){
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .social {
+      &__header{
+        @include media(sm){
+          margin-bottom: 0;
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+// title
+.social-title{
+  font-family: $brandon;
+  @include media(sm){
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__angle{
+    &--right{
+      margin-left: 1em;
+      svg{
+        width: 7px;
+        position: relative;
+        top: 2px;
+        .cls-1{
+          fill: #FFF;
+
+        }
+      }
+    }
+    &--down{
+      margin-top: -6px;
+      svg{
+        width: 14px;
+      }
+    }
+  }
+  &--row-sp{
+    @extend .social-title;
+    @include media(sm){
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

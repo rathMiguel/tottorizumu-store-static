@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+//
+// page header
+//
+
+.page-header{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  // margin-top: -20px;
+  // padding-top: 20px;
+  // height: 280px + 20px;
+  height: 280px ;
+  color: #FFF;
+  background-color: $color-primary;
+  @include media(sm){
+    // height: 150px + 20px;
+    height: 150px ;
+  }
+  
+  &.has-bg{
+    position: relative;
+
+    & > * {
+      color: #FFF;
+    }
+  }
+}
+
+.page-header-image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  &::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#000, 0.28);
+  }
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.page-headertitle{
+  font-size: size(30);
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 20;
+  @include media(sm){
+    margin-bottom: 3px;
+    font-size: size(25);
+  }
+}
+
+.page-headersubtitle{
+  font-family: $brandon;
+  font-size: size(20);
+  font-weight: 700;
+  color: $color-info;
+  line-height: 1.5;
+  position: relative;
+  z-index: 20;
+}
+
+//
+// intro
+//
+
+.page-intro{
+  text-align: center;
+  @include media(sm){
+    margin-bottom: 3em;
+  }
+  @include media(md-lg){
+    margin-bottom: 4em;
+  }
+}
+
+//
+// first posts
+//
+
+.first-posts{
+  &__header{
+    margin-bottom: 30px;
+    @include media(sm){
+      margin-bottom: 10px;
+    }
+  }
+  &__title{
+    font-size: size(24);
+    color: $color-primary;
+    font-weight: 700;
+    text-align: center;
+    @include media(sm){
+      font-size: size(20);
+    }
+    &::before,
+    &::after{
+      content:"";
+      display: inline-block;
+      margin-left: 10px;
+      margin-right: 10px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    &::before{
+      width: 24px;
+      height: 21px;
+      background-image: url('../images/common/heading1-1.svg');
+    }
+    &::after{
+      width: 24px;
+      height: 21px;
+      background-image: url('../images/common/heading1-2.svg');
+    }
+  }
+}
+
+.category-posts{
+  @include media(md-lg){
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}

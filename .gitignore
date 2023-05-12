@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dists/
+
+# Mac OSX
+.DS_Store
+
+*.mov
+*.mp4

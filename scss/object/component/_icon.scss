@@ -1,0 +1,177 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.icon{
+  display: inline-block;
+}
+
+.icon-line{
+  width: 24px;
+  .cls-1{
+    fill:#455996;
+    isolation:isolate;
+  }
+}
+
+.icon-instagram{
+  width: 21px;
+  .cls-1 {
+    fill: #455996;
+  }
+  .cls-2 {
+    isolation: isolate;
+  }
+}
+
+.icon-twitter{
+  width: 20px;
+  .cls-1{
+    fill:#455996;
+  }
+}
+
+.icon-facebook{
+  width: 10px;
+  .cls-1 {
+    fill: #455996;
+  }
+  .cls-2 {
+    isolation: isolate;
+  }
+}
+
+.icon-down{
+  width: 14px;
+  .cls-3{
+    fill:none;
+    stroke:#425896;
+    stroke-miterlimit:10;
+    stroke-width:2px;
+  }
+}
+
+.icon-roupe{
+  width: 21px;
+  .cls-1{
+    fill:#425896;
+  }
+}
+
+.icon-shop{
+  width: 26px;
+  @include media(sm){
+    width: 22px;
+  }
+  .cls-1{fill:#3c589b;}.cls-2{isolation:isolate;}
+}
+
+.icon-speaker{
+  width: 24px;
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-tableware{
+  width: 41px;
+  @include media(sm){
+    width: 35px;
+  }
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-car{
+  width: 40px;
+  @include media(sm){
+    width: 34px;
+  }
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-heart{
+  width: 27px;
+  @include media(sm){
+    width: 23px;
+  }
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-person{
+  width: 16px;
+  @include media(sm){
+    width: 14px;
+  }
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-pin{
+  width: 20px;
+  @include media(sm){
+    width: 17px;
+  }
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-tottorizumu{
+  width: 27px;
+  @include media(sm){
+    width: 23px;
+  }
+  .cls-1{fill:#425896;}
+}
+
+.icon-bell{
+  width: 56px;
+  @include media(sm){
+    width: 35px;
+  }
+  .cls-1{stroke:#666;stroke-miterlimit:10;stroke-width:2px;}.cls-1,.cls-2{fill:none;}.cls-2{stroke:#dda248;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.62px;}.cls-3{fill:#dda248;}.cls-4{fill:#666;}
+}
+
+.icon-store{
+  width: 71px;
+  @include media(sm){
+    width: 35px;
+  }
+  .cls-1{fill:#fff;}.cls-2{fill:none;}.cls-3{fill:#dda248;}.cls-4{fill:#666;}
+}
+
+.icon-calendar{
+  width: 36px;
+  @include media(sm){
+    width: 20px;
+  }
+  .cls-1{stroke-width:2.35px;}.cls-1,.cls-2{fill:none;stroke:#666;stroke-linecap:round;stroke-linejoin:round;}.cls-2{stroke-width:2.44px;}.cls-3{fill:#dda248;}.cls-4{fill:#666;}
+}
+
+.icon-coupon{
+  width: 76px;
+  @include media(sm){
+    width: 38px;
+  }
+  .cls-1{fill:#fff;}.cls-2{stroke-width:2.3px;}.cls-2,.cls-3,.cls-4{fill:none;stroke:#666;stroke-linecap:round;stroke-linejoin:round;}.cls-3{stroke-dasharray:0 0 1.08 3.76;}.cls-3,.cls-4{stroke-width:2px;}.cls-5{fill:#dda248;}
+}
+
+.icon-home{
+  width: 30px;
+  .cls-1{fill:#3c589b;}
+}
+
+.icon-circle{
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include media(sm){
+    border: none;
+  }
+}
+
+.icon-note{
+  width: 24px;
+  .cls-1{fill:#fff;}
+  .cls-2{fill:#3f5d95;}
+}

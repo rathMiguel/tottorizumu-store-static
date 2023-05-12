@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.sidebar{
+  @include media(lg){
+    width: 300px + 40px;
+    max-width: 300px + 40px;
+    margin-left: auto;
+    padding-left: 40px;
+    flex: 1;
+  }
+}
+
+.sidebar-block{
+  margin-bottom: 60px;
+  @include media(sm){
+    margin-bottom: 40px;
+  }
+  &__header{
+    margin-bottom: 25px;
+  }
+  &__title{
+    font-size: size(18);
+    text-align: center;
+    .icon{
+      vertical-align: bottom;
+      margin-right: 10px;
+      position: relative;
+      top: -3px;
+    }
+    @include media(sm){
+      font-size: size(20);
+    }
+  }
+}
+
+// banners
+
+.sidebar-banners{
+  li{
+    margin-bottom: 1em;
+    @include media(md-lg){
+      margin-bottom: 2em;
+    }
+  }
+}

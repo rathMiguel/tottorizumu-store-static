@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.breadcrumb{
+  font-size: size(12);
+  color: #999;
+  a{
+    color: inherit;
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+.breadcrumb-list{
+  display: flex;
+  line-height: 1.3;
+}
+
+.breadcrumb-item{
+  &:not(:last-child){
+    white-space: nowrap;
+    &::after{
+      content: ">";
+      margin-left: 0.3em;
+      margin-right: 0.3em;
+    }
+  }
+}

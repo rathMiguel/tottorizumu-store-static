@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.link-tel{
+  color: inherit;
+  text-decoration: none;
+  @include media(md-lg){
+    pointer-events: none;
+  }
+}

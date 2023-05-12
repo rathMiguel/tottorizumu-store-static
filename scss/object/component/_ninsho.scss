@@ -1,0 +1,244 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+@use "sass:color";
+
+$btn-colors: (
+  "color1": #ec3732,
+  "color2": #50B051,
+  "color3": #2070C0,
+  "color4": #EE759B,
+  "color5": #6F309F,
+  "color6": #30487D,
+);
+
+.ninsho-search{
+  background-color: #ecedf2;
+  padding: 1em;
+  position: relative;
+  @include media(lg){
+    padding: 1.5em;
+  }
+
+  &__row{
+    @include media(md-lg){
+      display: flex;
+      align-items: center;
+    }
+    &:not(:last-child){
+      margin-bottom: 1em;
+    }
+  }
+
+  .search-form{
+    @include media(sm){
+      margin-bottom: 1em;
+    }
+    input{
+      height: 42px;
+      @include media(md-lg){
+        width: 24em;
+      }
+    }
+    button{
+      height: 42px;
+    }
+  }
+}
+
+.ninsho-search-areas{
+  @include media(md-lg){
+    margin-left: 2em;
+  }
+}
+
+.filters-dl{
+  display: flex;
+  align-items: center;
+  @include media(sm){
+    flex-direction: column;
+    align-items: start;
+  }
+  dt{
+    margin-right: 1em;
+  }
+
+  &--vertical{
+    dt{
+      @include media(md-lg){
+        margin-bottom: 0.4em;
+      }
+    }
+  }
+}
+
+.filter-buttons{
+  display: flex;
+  flex-wrap: wrap;
+  @include media(sm){
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  input[type="checkbox"],
+  input[type="radio"]{
+    appearance: none;
+    position: absolute;
+  }
+  
+  .button-ninsho{
+    background-color: #FFF;
+    border-radius: 0.25em;
+    padding: 0.35em 1em;
+    height: 44px;
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    @include media(sm){
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 100%;
+    }
+    @at-root {
+      input[type="checkbox"]:checked,
+      input[type="radio"]:checked{
+        & + .button-ninsho{
+          color: #FFF;
+          background-color: #7F7F7F;
+          border: 1px solid #FFF
+        }
+      }
+    }
+
+    &--color0{
+      @extend .button-ninsho;
+      height: 40px;
+      border: 1px solid #FFF;
+      background-color: transparent;
+      @at-root {
+        input[type="checkbox"]:checked,
+        input[type="radio"]:checked{
+          & + .button-ninsho--color0{
+            background-color: #fff !important;
+            color: #999 !important;
+          }
+        }
+      }
+    }
+
+    @each $key, $value in $btn-colors {
+      &--#{$key}{
+        @extend .button-ninsho;
+        color: #FFF;
+        border: 1px solid $value;
+        background-color: $value;
+        @at-root {
+          input[type="checkbox"]:checked,
+          input[type="radio"]:checked{
+            & + .button-ninsho--#{$key}{
+              background-color: darken($value, 10%) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  li{
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    @include media(sm){
+      width: 33.333%;
+      padding-left: 10px;
+      padding-right: 10px;
+      margin-right: 0;
+    }
+  }
+}
+
+.ninsho-subpanel{
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  background-color: #999;
+  color: #FFF;
+  width: 100%;
+  padding: 1em;
+  // display: none;
+}
+
+.ninsho-block{
+  border-top: 1px solid #D4D4D4;
+  border-bottom: 1px solid #D4D4D4;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-bottom: -1px;
+
+  &__header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.3em;
+
+    @include media(sm){
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+}
+
+.ninsho-labels{
+  margin-right: 1em;
+  display: flex;
+  flex-direction: column;
+  @include media(sm){
+    flex-direction: row;
+  }
+}
+
+.ninsho-label{
+  background-color: #999;
+  color: #FFF;
+  display: inline-flex;
+  line-height: 1.2;
+  padding: 0.3em 1em;
+  font-size: size(11);
+  min-width: 6em;
+  text-align: center;
+  justify-content: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  @include media(sm){
+    margin-right: 0.5em;
+  }
+  @each $key, $value in $btn-colors {
+    &--#{$key}{
+      @extend .ninsho-label;
+      background-color: $value;
+      border-radius: 0.3em;
+    }
+  }
+}
+
+.ninsho-title{
+  font-size: size(20);
+}
+
+.ninsho-info{
+  dt{
+    width: 4.7em;
+    text-align: justify;
+    text-align-last: justify;
+    float: left;
+    position: relative;
+    &::after{
+      content: "：";
+      position: absolute;
+      right: -1em;
+    }
+  }
+  dd{
+    padding-left: 5.75em;
+  }
+}

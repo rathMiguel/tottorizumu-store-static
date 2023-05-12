@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+// tab layout
+
+.wpp-tablist{
+  display: flex;
+  margin-bottom: 1em;
+  li{
+    width: 100%;
+    border: 1px solid #dda248;
+    border-bottom: none;
+    margin-left: -1px;
+    margin-right: -1px;
+  }
+
+  label{
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbf6ee;
+    border-bottom: 1px solid #dda248;
+  }
+}
+
+// list layout
+
+.wpp-list{
+  li{
+    position: relative;
+    display: flex;
+    margin-bottom: 1em;
+    &::before{
+      content: "1";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 5;
+      color: #FFF;
+      height: 25px;
+      width: 25px;
+    }
+    &::after{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border: 20px solid rgba(#d6a15a, 0.8);
+      border-right-color: transparent;
+      border-bottom-color: transparent;
+    }
+
+    @for $i from 1 to 20 {
+      &:nth-child(#{$i}){
+        &::before{
+          content: "#{$i}";
+        }
+      }
+    }
+  }
+  a{
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    font-size: size(13);
+    &:first-child{
+      width: 113px;
+    }
+    &:nth-child(2){
+      flex: 1;
+      padding-left: 20px;
+      line-height: 1.5;
+    }
+  }
+}
+
+.post-stats{
+  display: none;
+}
+
+//
+// home
+//
+
+.home-wpp{
+  .wpp-list{
+    @include media(lg){
+      padding-left: 20px;
+      padding-right: 20px;
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li{
+      @include media(lg){
+        overflow: hidden;
+        flex-direction: column;
+        border-radius: $radius-regular;
+        width: calc(25% - 20px);
+        box-sizing: border-box;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+
+      a{
+        @include media(lg){
+          display: block;
+        }
+        &:nth-child(1){
+          @include media(lg){
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          
+          img{
+            @include media(lg){
+              border-radius: $radius-regular;
+              aspect-ratio: 1 / 1;
+            }
+          }
+        }
+        &:nth-child(2){
+          @include media(lg){
+            padding-left: 0;
+          }
+        }
+      }
+
+      &::before{
+        @include media(lg){
+          left: 5px;
+          top: 5px;
+        }
+      }
+
+      &::after{
+        @include media(lg){
+          border-width: 30px;
+        }
+      }
+    }
+  }
+}

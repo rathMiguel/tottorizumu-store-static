@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+@use "../settings/variables" as *;
+@use "../settings/mixins" as *;
+
+@use "sass:color";
+
+.section-first{
+  margin-bottom: 100px;
+  @include media(sm){
+    margin-bottom: 30px;
+  }
+}
+
+.section-second{
+  @extend .section-first;
+  background-image: url('../images/common/section-bg--top.png'),
+  url('../images/common/section-bg--bottom.png');
+  padding-top: 100px;
+  padding-bottom: 120px;
+  background-repeat: repeat-x;
+  background-position: center top, center bottom;
+  background-color: #F1F3F8;
+  background-size: 1234px;
+  @include media(sm){
+    background-size: 768px, 768px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+}
+
+.section-header{
+  text-align: center;
+  margin-bottom: 40px;
+  @include media(sm){
+    margin-bottom: 10px;
+  }
+  &__caption{
+    font-size: size(11);
+    margin-top: 10px;
+    @include media(md-lg){
+      margin-top: 20px;
+      font-size: size(15);
+    }
+  }
+}
+
+.section-footer{
+  text-align: center;
+  margin-top: 50px;
+  @include media(sm){
+    margin-top: 20px;
+  }
+}
+
+.section-iconarea{
+  margin-bottom: 2px;
+  @include media(sm){
+    margin-bottom: -3px;
+  }
+  &--bell{
+    svg{
+      margin-right: -18px;
+      @include media(sm){
+        margin-right: -10px;
+      }
+    }
+  }
+
+  &--newly{
+    margin-bottom: 5px;
+    @include media(lg){
+      margin-bottom: 10px;
+    }
+  }
+
+  &--ranking{
+    margin-bottom: 5px;
+    @include media(lg){
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.section-title{
+  color: $color-primary;
+  font-size: size(30);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 7px;
+  @include media(sm){
+    font-size: size(24);
+    margin-bottom: 3px;
+  }
+}
+
+.section-subtitle{
+  display: block;
+  font-family: $brandon;
+  color: lighten($color-primary, 40%);
+  font-size: size(15);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  line-height: 1.5;
+  @include media(sm){
+    font-size: size(18);
+  }
+}

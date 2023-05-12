@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.pagination-list{
+  display: flex;
+  justify-content: center;
+  li{
+    border-left: 1px solid #333333;
+    line-height: 1.2;
+    &:first-child{
+      border-left: none;
+    }
+  }
+  a{
+    display: inline-flex;
+    text-decoration: none;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+  }
+}
+
+.wp-pagenavi{
+  display: flex;
+  justify-content: center;
+  .previouspostslink,
+  .nextpostslink,
+  .current,
+  .extend,
+  .page{
+    display: inline-flex;
+    text-decoration: none;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    line-height: 1.2;
+    &:first-child{
+      border-left: none;
+    }
+  }
+
+  .current{
+    color: #d6a15a;
+  }
+}

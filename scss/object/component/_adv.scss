@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.adv-area{
+  @include media(md-lg){
+    display: flex;
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+
+  & > .adv-area-block{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    width: 100%;
+    @include media(md-lg){
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+    @include media(sm){
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+@charset "utf-8";
+
+@use "../../settings/variables" as *;
+@use "../../settings/mixins" as *;
+
+.page-template-page-blank{
+  padding-top: 0;
+  @include media(sp){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
